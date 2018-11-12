@@ -1,0 +1,18 @@
+Section 1 (API)
+
+a. Using simple code, explain what kind of situations would you use the methods:
+i. GET
+ii. POST
+iii. UPDATE
+iv. PUT
+Ans:- 
+We are using the above HTTP request method in different Scenario :-
+- i. GET :- HTTP GET method is used to retrieve the resource from server. It doesn't alter the resource on server. It simply send the resource information as response body. we can send the different HTTP header as per content send by server.
+GET methods having limitation of 
+For Example 1. If we get the content that is requested to server It must return HTTP Code 200 (ok) from the server.
+            2. If we there is no content requested on the server It must return HTTP Code 404 (Not Found) from the server but It is depend on developer How we manage. some of us sending not found message in response body with HTTP Code 200 (ok).
+            HTTP GET http://www.example.com/users
+            HTTP GET http://www.example.com/users?size=20&page=5
+            HTTP GET http://www.example.com/users/123
+            
+ii. POST :- HTTP POST request              
