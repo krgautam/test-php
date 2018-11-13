@@ -30,6 +30,41 @@ If it's an existing resource and we are modifying the resource than we sent eith
 HTTP PUT http://www.example.com/users/1
 name=def&age=12&email=abc@gmail.com
 
-b. Explain​ in​ your​ own​ words,​ what​ kind​ of​ “authentication”​ works​ best​ for​ a ​ web​ servicethat​ needs​ to​ be​ secure,​ yet​ easy​ to​ implement​ across​ different​ programming​ languages.You​ may​ want​ to​ give​ an​ example​ of​ how​ to​ call​ this​ API.
+b. Explain in your own words, what kind of “authentication” works best for a  web service that needs to be secure, yet easy to implement across different programming languages.You may want to give and example of how to call this API.
+
+IN Web Service creation OAUTH authentication is most secure and easy to implement in any programming languages. OAUTH is a combination of Authentication and Authorization. Let see the complete scenario we are creating one POST API where Client send username and password to the server.
+If the server receive the correct credentials from client it will send a token to the client with expiry and server ip. Now this token is valid upto the expiry from this server. So, Whenever this server is requesting API to the server it will send the token in Authorization header and on server for each request Authorization header is checked if it is valid than it will get the response or Ideally we will send 400 (Bad Request) or
+401 (Unauthorised).
+For example :- 
+First I have to get token from the server
+HTTP POST http://www.example.com/token
+username=abc&password=123
+I will receive the response
+{token:"gffgfgfgfgfgfgfgfgfg.eyJpYXQiOjE0MjU1ODg4MjEsImp0aSI6IjU0ZjhjMjU1NWQyMjMiLCJpc3MiOiJzcC1qd3Qtc2ltcGxlLXRlY25vbTFrMy5jOS5pbyIsIm5iZiI6MTQfdfdfdlkdjfkdjflkdjfdffdfLCJkYXRhIjp7InVzZXJJZCI6IjEiLCJ1c2VyTmFtZSI6ImFkbWluIn19.HVYBe9xvPD8qt0wh7rXI8bmRJsQavJ8Qs29yfVbY-A0",expireAt:"2018-11-13 12:00:00",hostIp:"127.0.0.1"}
+Now when I want to get the user details
+HTTP GET http://www.example.com/users
+Host: example.com
+Connection: keep-alive
+Accept: */*
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer gffgfgfgfgfgfgfgfgfg.eyJpYXQiOjE0MjU1ODg4MjEsImp0aSI6IjU0ZjhjMjU1NWQyMjMiLCJpc3MiOiJzcC1qd3Qtc2ltcGxlLXRlY25vbTFrMy5jOS5pbyIsIm5iZiI6MTQfdfdfdlkdjfkdjflkdjfdffdfLCJkYXRhIjp7InVzZXJJZCI6IjEiLCJ1c2VyTmFtZSI6ImFkbWluIn19.HVYBe9xvPD8qt0wh7rXI8bmRJsQavJ8Qs29yfVbY-A0
+
+C. What​  kind​  of​  format​  is​  best​  to​  be​  returned by  an  API  as  a  response?  Explain  your answer  and  provide  comparisons,  if  needed.
+
+In Api response different type of content can be served in different format like HTML, JSON, XML, and plain text. JSON is a best format to be returned as an API response.
+
+JSON- JSON stands for JavaScript Object Notation. JSON is simple to read and write. JSON is readable and easy to learn. JSON supports Array.
+For AJAX application JSON content is like ready to serve.
+
+XML :- XML stands for eXtensible Markup Language.XML is less simple than JSON.XML provides the capability to display data because it is a markup language.XML support many data types such as text, number, images, charts, graphs etc. Moreover, XML offeres options for transferring the format or structure of the data with actual data.
+Extra effort is used to parse XML data from XML response. 
+
+PLain Text :- Plain text can be sent as an API response. It can be used only when a simple message need to be sent as API response from Server.
+
+HTML :- When a Complete screen or a small widget need to be replaced on the screeen we simple create the HTML code on the server and we send that HTML content as an API Response.
+
+Section​ ​ 2:​ ​ Simple​ ​ Checkout​ ​ System
+
+
 
 
