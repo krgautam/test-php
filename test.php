@@ -1,13 +1,11 @@
 <?php
 /**
  * @author: Digi-X
- * @classname:Checkout
  * @created: 13 Nov, 2018
  * @createdBy: Gautam Thakur
  * @modified: 13 Nov, 2018
  * @modifiedBy: Gautam Thakur
- * @purpose: To Create An Interface for Simple Checkout system for daily Deals And Offers
- * @uses It can be used by implementors to calculate billing price of scanned devices.
+ * @purpose: To test the Checkout system is working properly or not.
  *  * */
 
 include_once 'Checkout.php';
@@ -18,7 +16,7 @@ include_once 'Checkout.php';
     $co->scan('atv');
     $co->scan('atv');
     $co->scan('vga');
-    $co->total();
+    $co->total(); // Total price is USD 249.00
     
     $co1  = new Checkout($pricingRules);
     $co1->scan('atv');
@@ -28,10 +26,10 @@ include_once 'Checkout.php';
     $co1->scan('ipd');
     $co1->scan('ipd');
     $co1->scan('ipd');
-    $co1->total();
+    $co1->total(); // Total price is USD 2,718.95
     
     $co2  = new Checkout($pricingRules);
     $co2->scan('mbp');
     $co2->scan('vga');
     $co2->scan('ipd');
-    $co2->total();
+    $co2->total(); // Total price is USD 1,949.98
