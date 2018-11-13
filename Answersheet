@@ -8,11 +8,28 @@ iv. PUT
 Ans:- 
 We are using the above HTTP request method in different Scenario :-
 - i. GET :- HTTP GET method is used to retrieve the resource from server. It doesn't alter the resource on server. It simply send the resource information as response body. we can send the different HTTP header as per content send by server.
-GET methods having limitation of 
+GET methods having limitation of almost 2k length it depends upon browser.
 For Example 1. If we get the content that is requested to server It must return HTTP Code 200 (ok) from the server.
             2. If we there is no content requested on the server It must return HTTP Code 404 (Not Found) from the server but It is depend on developer How we manage. some of us sending not found message in response body with HTTP Code 200 (ok).
             HTTP GET http://www.example.com/users
             HTTP GET http://www.example.com/users?size=20&page=5
             HTTP GET http://www.example.com/users/123
             
-ii. POST :- HTTP POST request              
+ii. POST :- HTTP POST request is used for creating new resource on the server.Post request doesn't having limit. It can't be bookmarked. data sent with post request is sent in the body of http request.
+For example If we send a user detail to be saved using post request ideally we sent 201 (created) HTTP response to the server.
+HTTP POST http://www.example.com/users
+name=abc&age=12&email=abc@gmail.com
+
+iii. UPDATE :- There is not any HTTP REQUEST named UPDATE. Instead of UPDATE there is a PATCH method for partial update resource on the server.
+the server. It will send the in the request body as it is sent with POST method on the server. 
+HTTP PATCH http://www.example.com/users/1
+id=1&age=15
+iv. PUT :- HTTP PUT method is used to update an existing resource on the server. If a resource has not existed It can create a new resource or if it is existing than it will update the existing resource. It completely depending upon the implementation.
+For example If we send a user detail to be saved using PUT request and if it's a new resource than ideally we sent 201 (created) HTTP response to the server.
+If it's an existing resource and we are modifying the resource than we sent either 200 (ok) response or 204 (No Content).
+HTTP PUT http://www.example.com/users/1
+name=def&age=12&email=abc@gmail.com
+
+b. Explain​ in​ your​ own​ words,​ what​ kind​ of​ “authentication”​ works​ best​ for​ a ​ web​ servicethat​ needs​ to​ be​ secure,​ yet​ easy​ to​ implement​ across​ different​ programming​ languages.You​ may​ want​ to​ give​ an​ example​ of​ how​ to​ call​ this​ API.
+
+
