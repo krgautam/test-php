@@ -66,5 +66,9 @@ HTML :- When a Complete screen or a small widget need to be replaced on the scre
 Section​ ​ 2:​ ​ Simple​ ​ Checkout​ ​ System
 
 
+For this section I have created 
+Checkout.php (Checkout Class) and test.php (Testing of checkout System)
+
+For pricing rule I have created predefined array and on that basis I am implementing deals and Offers.
 
 
