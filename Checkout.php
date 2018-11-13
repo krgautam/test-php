@@ -51,7 +51,7 @@ class Checkout{
            $rule = $this->pricingRules[$product];
            switch (key($rule)) {
             case "for":
-                if($count > key($rule['for'])){
+                if($count >= key($rule['for'])){
                 $price= $this->getPrice($product);
                 $totalPrice+=($price  * $count/key($rule['for'])*current($rule['for']))+($price * ($count%key($rule['for'])));
                 }else{
